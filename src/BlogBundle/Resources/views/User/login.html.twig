@@ -37,7 +37,11 @@
                  <form action="{{path("login")}}" method="post">
                     <h2>Registrate</h2>
                     <hr/>
-                    {{form_start(form,{'action':'','method':'POST'})}}
+                 
+                    {% for message in app.session.flashbag().get('status') %}
+                        <div class="alert alert-success">{{ message }}</div>
+                    {% endfor %}
+                    {{form_start(form, {'action':'','method':'POST'})}}
                     {{form_end(form)}}
                     
                     </form>
